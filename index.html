@@ -1,1 +1,242 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eu Amo a Minha Voz LS - Fonoaudiologia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        :root {
+            --primary: #e91e63;
+            --primary-dark: #c2185b;
+            --primary-light: #f8bbd0;
+            --secondary: #9c27b0;
+            --dark: #2c1338;
+            --light: #fff5f8;
+            --gray: #6c757d;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
+            --gradient-soft: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+            --shadow: 0 10px 40px rgba(233, 30, 99, 0.15);
+            --shadow-hover: 0 20px 60px rgba(233, 30, 99, 0.25);
+        }
+        html { scroll-behavior: smooth; }
+        body { background: var(--white); color: var(--dark); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; max-width: 1400px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.3rem; color: var(--primary); }
+        .logo i { font-size: 1.8rem; animation: heartbeat 1.5s infinite; }
+        @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        .nav-links { display: flex; list-style: none; gap: 35px; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-agendar { background: var(--gradient); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 5px 20px rgba(233,30,99,0.3); transition: all 0.3s; }
+        .btn-agendar:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(233,30,99,0.5); }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 40px 60px; background: var(--gradient-soft); }
+        .hero-content { flex: 1; max-width: 600px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .highlight { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Dancing Script', cursive; font-size: 4rem; }
+        .hero p { font-size: 1.15rem; color: var(--gray); margin-bottom: 30px; }
+        .hero-buttons { display: flex; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
+        .btn-secondary { background: transparent; color: var(--primary); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; border: 2px solid var(--primary); transition: all 0.3s; }
+        .btn-secondary:hover { background: var(--primary); color: white; }
+        .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+        .stat-number { font-size: 2.5rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 0.9rem; color: var(--gray); }
+        .hero-image { flex: 1; display: flex; justify-content: center; }
+        .hero-image-placeholder { width: 400px; height: 500px; background: var(--gradient); border-radius: 30px 30px 150px 30px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: var(--shadow-hover); }
+        .features, .services, .about, .testimonials { padding: 100px 40px; }
+        .features, .about { background: var(--white); }
+        .services, .testimonials { background: var(--gradient-soft); }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .section-title p { color: var(--gray); font-size: 1.1rem; }
+        .features-grid, .services-grid, .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .feature-card, .service-card, .testimonial-card { background: var(--white); padding: 40px 30px; border-radius: 20px; transition: all 0.4s; }
+        .feature-card:hover, .service-card:hover, .testimonial-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+        .feature-icon { width: 80px; height: 80px; background: var(--gradient-soft); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: var(--primary); }
+        .feature-card h3, .service-card h3 { font-size: 1.25rem; margin-bottom: 15px; }
+        .feature-card p, .service-card p, .testimonial-card p { color: var(--gray); }
+        .service-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-image { width: 100%; height: 500px; background: var(--gradient); border-radius: 30px; display: flex; align-items: center; justify-content: center; color: white; }
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .about-text p { color: var(--gray); margin-bottom: 15px; }
+        .credentials { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; }
+        .credential-item { display: flex; align-items: center; gap: 10px; background: var(--gradient-soft); padding: 10px 20px; border-radius: 50px; }
+        .credential-item i { color: var(--primary); }
+        .stars { color: #ffc107; margin-bottom: 15px; }
+        .testimonial-author { font-weight: 600; color: var(--primary); margin-top: 15px; }
+        .cta { padding: 100px 40px; background: var(--gradient); text-align: center; color: white; }
+        .cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .cta p { font-size: 1.2rem; margin-bottom: 30px; }
+        .btn-white { background: white; color: var(--primary); padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s; }
+        .btn-white:hover { transform: translateY(-5px) scale(1.05); }
+        footer { background: var(--dark); color: white; padding: 60px 40px 20px; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
+        .footer-section h3 { margin-bottom: 20px; color: var(--primary-light); }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); margin-bottom: 10px; text-decoration: none; display: block; }
+        .footer-section a:hover { color: var(--primary-light); }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .social-links a:hover { background: var(--gradient); transform: translateY(-5px); }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 999; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 5px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.7); } 50% { box-shadow: 0 5px 20px rgba(37,211,102,0.4), 0 0 0 15px rgba(37,211,102,0); } }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        @media (max-width: 968px) {
+            .nav-links, .btn-agendar { display: none; }
+            .hero { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .highlight { font-size: 2.8rem; }
+            .hero-image-placeholder { width: 300px; height: 380px; margin-top: 40px; }
+            .about-content { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+                <span>Eu Amo a Minha Voz LS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="#agendar" class="btn-agendar">
+                <i class="fas fa-calendar-check"></i> Agendar
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Transforme sua voz e <span class="highlight">toque corações</span> ❤️</h1>
+            <p>Fonoaudiologia especializada em desenvolver o pleno potencial da sua voz. Atendimento humanizado para cantores, profissionais e crianças.</p>
+            <div class="hero-buttons">
+                <a href="#agendar" class="btn-agendar"><i class="fas fa-calendar-plus"></i> Agende Agora</a>
+                <a href="#servicos" class="btn-secondary">Conheça os Serviços</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-number">10+</div><div class="stat-label">Anos de Experiência</div></div>
+                <div class="stat"><div class="stat-number">1000+</div><div class="stat-label">Pacientes</div></div>
+                <div class="stat"><div class="stat-number">98%</div><div class="stat-label">Satisfação</div></div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-placeholder">
+                <div style="text-align:center;"><i class="fas fa-user-md" style="font-size:5rem;margin-bottom:1rem;"></i><p>Foto da Lucileide Santos</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title"><h2>Por Que Escolher Nossa Clínica?</h2><p>Atendimento completo e personalizado</p></div>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-user-md"></i></div><h3>Atendimento Personalizado</h3><p>Planos individualizados para suas necessidades.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-laptop-medical"></i></div><h3>Teleconsulta</h3><p>Atendimento online com a mesma qualidade.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-award"></i></div><h3>Técnicas Inovadoras</h3><p>Métodos modernos baseados em evidências.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-clock"></i></div><h3>Agendamento Flexível</h3><p>Horários de segunda a sábado.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-heart"></i></div><h3>Abordagem Humanizada</h3><p>Cuidado em cada detalhe.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Resultados Comprovados</h3><p>Acompanhamento contínuo.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section-title"><h2>Nossos Serviços</h2><p>Soluções completas em fonoaudiologia</p></div>
+            <div class="services-grid">
+                <div class="service-card"><i class="fas fa-microphone-alt"></i><h3>Voz para Cantores</h3><p>Técnicas para aprimorar performance vocal.</p></div>
+                <div class="service-card"><i class="fas fa-child"></i><h3>Fonoaudiologia Infantil</h3><p>Desenvolvimento da fala e linguagem.</p></div>
+                <div class="service-card"><i class="fas fa-briefcase"></i><h3>Oratória</h3><p>Melhore sua comunicação profissional.</p></div>
+                <div class="service-card"><i class="fas fa-procedures"></i><h3>Reabilitação Vocal</h3><p>Tratamento de nódulos e pólipos.</p></div>
+                <div class="service-card"><i class="fas fa-brain"></i><h3>Terapia da Fala</h3><p>Correção de distúrbios da fala.</p></div>
+                <div class="service-card"><i class="fas fa-users"></i><h3>Workshops</h3><p>Treinamentos corporativos.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image"><div style="text-align:center;"><i class="fas fa-user-md" style="font-size:5rem;margin-bottom:1rem;"></i><p>Foto Profissional</p></div></div>
+                <div class="about-text">
+                    <h2>Conheça Lucileide Santos</h2>
+                    <p>Fonoaudióloga apaixonada por transformar vidas através da voz. Com mais de 10 anos de experiência.</p>
+                    <p>Especialista em voz profissional e cantores, combino técnicas tradicionais com abordagens inovadoras.</p>
+                    <p>Criadora do programa "Eu Amo a Minha Voz".</p>
+                    <div class="credentials">
+                        <div class="credential-item"><i class="fas fa-check-circle"></i><span>CRFa Ativo</span></div>
+                        <div class="credential-item"><i class="fas fa-check-circle"></i><span>Pós-Graduada</span></div>
+                        <div class="credential-item"><i class="fas fa-check-circle"></i><span>Coach Vocal</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="depoimentos">
+        <div class="container">
+            <div class="section-title"><h2>O Que Nossos Pacientes Dizem</h2></div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"A Lucileide transformou minha voz! Recuperei minha voz e hoje canto sem dor."</p><div class="testimonial-author">- Carlos Mendes, Cantor</div></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Minha filha evoluiu incrível em poucos meses. Atendimento humanizado!"</p><div class="testimonial-author">- Maria Fernanda</div></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Aprendi técnicas que mudaram minha vida profissional. Trabalho sem cansaço!"</p><div class="testimonial-author">- Ana Paula, Professora</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="agendar">
+        <h2>Pronta Para Transformar Sua Voz?</h2>
+        <p>Agende sua consulta hoje mesmo!</p>
+        <a href="https://wa.me/5571999999999" class="btn-white"><i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp</a>
+    </section>
+
+    <footer id="contato">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Eu Amo a Minha Voz LS</h3>
+                <p>A marca que toca seu coração ❤️</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Salvador, BA</p>
+                <p><i class="fas fa-phone"></i> (71) 99999-9999</p>
+                <p><i class="fas fa-envelope"></i> contato@euamoaminhavoz.com.br</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <p><a href="#inicio">Início</a></p>
+                <p><a href="#sobre">Sobre</a></p>
+                <p><a href="#servicos">Serviços</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Serviços</h3>
+                <p><a href="#">Voz para Cantores</a></p>
+                <p><a href="#">Fonoaudiologia Infantil</a></p>
+                <p><a href="#">Oratória</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2024 Eu Amo a Minha Voz LS. Todos os direitos reservados.</p></div>
+    </footer>
+
+    <a href="https://wa.me/5571999999999" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</body>
+</html>
